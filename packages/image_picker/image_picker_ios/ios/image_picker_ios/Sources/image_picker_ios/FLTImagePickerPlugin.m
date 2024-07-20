@@ -52,6 +52,8 @@ typedef NS_ENUM(NSInteger, ImagePickerClassType) { UIImagePickerClassType, PHPic
 - (UIImagePickerController *)createImagePickerController {
   if ([self.imagePickerControllerOverrides count] > 0) {
     UIImagePickerController *controller = [self.imagePickerControllerOverrides firstObject];
+    controller.videoExportPreset = AVAssetExportPresetPassthrough;
+    controller.allowsEditing = NO;
     [self.imagePickerControllerOverrides removeObjectAtIndex:0];
     return controller;
   }
